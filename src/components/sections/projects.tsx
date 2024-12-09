@@ -23,7 +23,7 @@ export function Projects() {
         <h2 className="text-3xl font-bold text-center mb-16">Featured Projects</h2>
         <div className="flex justify-center gap-8 flex-wrap">
           {projects.map((project) => (
-            <Card key={project.title} className="group overflow-hidden max-w-96">
+            <Card key={project.title} className="group overflow-hidden max-w-80">
               <div className="aspect-video relative">
                 <Image
                   src={project.image}

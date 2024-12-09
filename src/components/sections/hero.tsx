@@ -1,11 +1,23 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Photo from '../../../public/Mahesh.webp'
 
 export function Hero() {
     return (
         <>
-            <section className="relative overflow-hidden pb-48 pt-32">
+            <section className="relative overflow-hidden pb-48 pt-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="flex items-center justify-center mb-10">
+                    <Image
+                        height={160}
+                        width={160}
+                        className="object-cover object-left-top h-40 w-40 rounded-full shadow-lg dark:grayscale"
+                        src={Photo}
+                        alt="Pic"
+                        placeholder="blur"
+                    />
+                </div>
                     <div className="mx-auto max-w-2xl text-center">
                         <h1 className="text-3xl xs:text-4xl font-bold tracking-tight sm:text-6xl">
                             Full Stack Developer
