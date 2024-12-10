@@ -1,5 +1,3 @@
-"use client";
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
@@ -11,7 +9,7 @@ const projects = [
     title: "mybiet.me",
     description: "A Next.js-powered platform with authentication and user management",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",//https://mybiet.me/icons/MyBiet-BlackBG-512.png
-    github: "https://github.com/yellareddymaheshreddy/mybiet",
+    github: "https://github.com/yellareddymaheshreddy",
     demo: "https://mybiet.me"
   },
 ];

@@ -1,5 +1,3 @@
-"use client";
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin } from "lucide-react";
@@ -12,7 +10,7 @@ export function Contact() {
         <h2 className="text-3xl font-bold text-center mb-16">Get in Touch</h2>
         <Card className="max-w-2xl mx-auto p-8">
           <p className="text-center text-lg text-muted-foreground mb-8">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          Open to collaboration and new opportunities. Let’s connect!
           </p>
           <div className="flex justify-center gap-6">
             <Button asChild>

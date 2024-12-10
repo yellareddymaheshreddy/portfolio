@@ -14,7 +14,7 @@ export function Hero() {
                         width={160}
                         className="object-cover object-left-top h-40 w-40 rounded-full shadow-lg dark:grayscale"
                         src={Photo}
-                        alt="Pic"
+                        alt="Mahesh Image"
                         placeholder="blur"
                     />
                 </div>
