@@ -17,7 +17,7 @@ export function Navbar() {
           </Link>
         </div>
         <div className="flex lg:hidden">
-        <ThemeSwitch/>
+          <ThemeSwitch />
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
@@ -31,7 +31,7 @@ export function Navbar() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ThemeSwitch/>
+          <ThemeSwitch />
         </div>
       </nav>
     </header>
