@@ -35,6 +35,7 @@ export function Contact() {
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.log(error);
       setStatus({
         type: "error",
         message: "Failed to send message. Please try again.",
