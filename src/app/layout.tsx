@@ -17,6 +17,14 @@ export const metadata: Metadata = {
     title: 'Mahesh Reddy - Full Stack Developer',
     description: 'Full Stack Developer specializing in MERN stack and Next.js',
     siteName: 'Mahesh Reddy Portfolio',
+    images: [
+      {
+        url: 'https://mahs.me/portfolio-dark.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mahesh Reddy Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
