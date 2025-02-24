@@ -16,23 +16,16 @@ export async function POST(req: Request) {
     // Get the model
     const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
-    // Start a chat with system prompt
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: SYSTEM_PROMPT }],
-        }
-      ],
-    });
+    // Format the entire conversation history into a single context string
+    const conversationHistory = messages.slice(0, -1)
+      .map((msg: { role: string; content: string }) => `${msg.role}: ${msg.content}`)
+      .join('\n');
 
-    // Send all previous messages to build context
-    for (let i = 0; i < messages.length - 1; i++) {
-      await chat.sendMessage(messages[i].content);
-    }
+    // Combine system prompt, history, and new message
+    const prompt = `${SYSTEM_PROMPT}\n\nConversation history:\n${conversationHistory}\n\nUser: ${messages[messages.length - 1].content}`;
 
-    // Send the latest message and get response
-    const result = await chat.sendMessage(messages[messages.length - 1].content);
+    // Send everything in a single request
+    const result = await model.generateContent(prompt);
     const response = await result.response;
     
     return NextResponse.json({ 
