@@ -6,7 +6,7 @@ import Link from "next/link";
 import logo from "../../../public/projects/mybiet.webp";
 import tvault from "../../../public/projects/tvault.png";
 import autoskaler from "../../../public/projects/autoskaler.png";
-import dctech from "../../../public/projects/dctech.png";
+import ecobil from "../../../public/projects/ecobill.png";
 import loopify from "../../../public/projects/loopify.png";
 // import ecommerceLogo from "../../../public/ecommerce.webp";
 
@@ -19,6 +19,14 @@ const projects = {
       github: "https://github.com/yellareddymaheshreddy",
       demo: "https://mybiet.me",
       tech: ["Next.js", "React", "Tailwind CSS", "Authentication"]
+    },
+    {
+      title:"Ecobill",
+      description:"A billing system for businesses",
+      image:ecobil,
+      github:"https://github.com/yellareddymaheshreddy",
+      demo:"https://b.mahs.me",
+      tech:["Next.js","React","Tailwind CSS","Node.js","Postgress"]
     },
     {
       title: "T-Vault",
@@ -37,13 +45,6 @@ const projects = {
       "image": autoskaler, // Replace with actual image link
       "demo": "https://autoskaler.com",
       "tech": ["Next.js", "React", "Node.js", "Postgress"]
-    },
-    {
-      "title": "DCTech",
-      "description": "A cloud hosting company with blogs and stories",
-      "image": dctech, // Replace with actual image link
-      "demo": "https://dctech.cloud",
-      "tech": ["Next.js", "React", "Node.js", "Redis"]
     },
     {
       "title": "Loopify",
