@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
     const { messages } = await req.json();
     
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-pro-exp-02-05' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const conversationHistory = messages.slice(0, -1)
       .map((msg: { role: string; content: string }) => `${msg.role}: ${msg.content}`)
