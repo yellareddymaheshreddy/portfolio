@@ -1,11 +1,11 @@
-import Link from "next/link";
-import ThemeSwitch from "./themeswitch";
+import Link from "next/link"
+import ThemeSwitch from "./themeswitch"
 
 const navigation = [
   { name: "Skills", href: "/#skills" },
   { name: "Projects", href: "/#projects" },
   { name: "Contact", href: "/#contact" },
-];
+]
 
 export function Navbar() {
   return (
@@ -35,5 +35,5 @@ export function Navbar() {
         </div>
       </nav>
     </header>
-  );
+  )
 }
