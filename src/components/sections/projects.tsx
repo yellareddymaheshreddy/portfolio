@@ -17,7 +17,7 @@ const projects = {
       description: "A Next.js-powered platform with authentication and user management",
       image: logo,//https://mybiet.me/icons/MyBiet-BlackBG-512.png
       github: "https://github.com/yellareddymaheshreddy",
-      demo: "https://mybiet.me",
+      demo: "https://biet.mahs.me",
       tech: ["Next.js", "React", "Tailwind CSS", "Authentication"]
     },
     {

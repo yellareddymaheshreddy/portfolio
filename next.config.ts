@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       },
     {
         protocol: 'https',
-        hostname: 'mybiet.me',
+        hostname: 'biet.mahs.me',
         port: '',
         pathname: '/**',
       },
