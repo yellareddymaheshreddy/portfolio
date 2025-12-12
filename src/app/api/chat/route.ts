@@ -1,8 +1,8 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import {GoogleGenAI} from '@google/genai';
 import { SYSTEM_PROMPT } from '@/lib/ai-config';
 import { NextResponse } from 'next/server';
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY || ''});
 
 export async function POST(req: Request) {
   try {
@@ -11,21 +11,19 @@ export async function POST(req: Request) {
     }
 
     const { messages } = await req.json();
-    
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const conversationHistory = messages.slice(0, -1)
       .map((msg: { role: string; content: string }) => `${msg.role}: ${msg.content}`)
       .join('\n');
 
     const prompt = `${SYSTEM_PROMPT}\n\nConversation history:\n${conversationHistory}\n\nUser: ${messages[messages.length - 1].content}`;
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    
+    const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+  });
     return NextResponse.json({ 
-      role: 'assistant',
-      content: response.text() 
+      role: 'assistant (you)',
+      content: response.text
     });
   } catch (error) {
     console.error('Chat API Error:', error);

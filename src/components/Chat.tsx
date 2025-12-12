@@ -5,7 +5,7 @@ import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 
 type Message = {
-  role: 'user' | 'assistant';
+  role: 'user' | 'assistant (you)';
   content: string;
 };
 
@@ -30,7 +30,7 @@ export function Chat() {
     if (isOpen && messages.length === 0) {
       setMessages([
         {
-          role: 'assistant',
+          role: 'assistant (you)',
           content: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, or answer any questions you have!"
         }
       ]);
@@ -72,14 +72,14 @@ export function Chat() {
       } else {
         console.error('Chat error:', data.error);
         setMessages([...newMessages, { 
-          role: 'assistant', 
+          role: 'assistant (you)', 
           content: "Sorry about that! Having some technical issues. Mind trying again? 🔧" 
         }]);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
       setMessages([...newMessages, { 
-        role: 'assistant', 
+        role: 'assistant (you)', 
         content: "Oops! Seems like my connection dropped. Could you try again? 🔌" 
       }]);
     } finally {
