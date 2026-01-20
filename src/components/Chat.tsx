@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 import { ChatResponse, UIAction } from '@/lib/llmResponseParser';
+import { portfolioConfig } from '@/config/portfolioConfig';
 
 type Message = {
   role: 'user' | 'assistant (you)';
@@ -33,7 +34,18 @@ export function Chat() {
       setMessages([
         {
           role: 'assistant (you)',
-          content: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, or answer any questions you have!"
+          content: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!",
+          data: {
+            message: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!",
+            intent: 'general',
+            ui_actions: [
+              {
+                type: 'button',
+                label: 'View Resume',
+                href: portfolioConfig.contact.resume
+              }
+            ]
+          }
         }
       ]);
     }
@@ -104,9 +116,9 @@ export function Chat() {
     return (
       <Button
         key={index}
-        variant="secondary"
+        variant="outline"
         size="sm"
-        className="mt-2 mr-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+        className="mt-2 mr-2 bg-background/50 text-primary hover:bg-primary hover:text-primary-foreground transition-colors border-primary/20"
         onClick={() => handleActionClick(action)}
       >
         {action.label}

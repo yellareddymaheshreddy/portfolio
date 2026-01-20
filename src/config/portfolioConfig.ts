@@ -4,7 +4,8 @@ export const portfolioConfig = {
         email: 'yellareddymaheshreddy@gmail.com',
         phone: '',
         linkedin: 'https://linkedin.com/in/maheshreddyyellareddy',
-        github: 'https://github.com/yellareddymaheshreddy'
+        github: 'https://github.com/yellareddymaheshreddy',
+        resume: '/Mahesh-Resume.pdf'
     },
     projects: [
         {

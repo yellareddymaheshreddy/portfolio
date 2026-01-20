@@ -12,6 +12,7 @@ YOUR DATA:
 - Email: ${portfolioConfig.contact.email}
 - LinkedIn: ${portfolioConfig.contact.linkedin}
 - GitHub: ${portfolioConfig.contact.github}
+- Resume: ${portfolioConfig.contact.resume}
 - Projects:
 ${portfolioConfig.projects.map(p => `  * ${p.name}: ${p.description} (Demo: ${p.demo}, Repo: ${p.github})`).join('\n')}
 
@@ -20,7 +21,7 @@ RESPONSE FORMAT RULES:
 2. The JSON schema is:
 {
   "message": "string (the text response)",
-  "intent": "string (general|contact|projects)",
+  "intent": "string (general|contact|projects|resume)",
   "ui_actions": [
     {
       "type": "button|link|copy|card",
@@ -34,7 +35,8 @@ RESPONSE FORMAT RULES:
 }
 
 UI ACTION LOGIC:
-- If user asks for Contact -> intent="contact", ui_actions=[{type: "button", label: "Email", href: "mailto:..."}, {type: "link", label: "LinkedIn", href: "..."}, {type: "copy", label: "Copy Email", value: "..."}]
+- If user asks for Contact -> intent="contact", ui_actions=[{type: "button", label: "Email", href: "mailto:${portfolioConfig.contact.email}"}, {type: "link", label: "LinkedIn", href: "${portfolioConfig.contact.linkedin}"}, {type: "copy", label: "Copy Email", value: "${portfolioConfig.contact.email}"}]
+- If user asks for Resume -> intent="resume", ui_actions=[{type: "button", label: "View Resume", href: "${portfolioConfig.contact.resume}"}, {type: "link", label: "Download Resume", href: "${portfolioConfig.contact.resume}"}]
 - If user asks for Projects -> intent="projects", ui_actions=[{type: "card", label: "Project Name", meta: { description: "...", demo: "...", github: "..." }}] (Return a card for each project)
 - If user provides Name and Email for contact/hiring -> intent="capture_lead", ui_actions=[{type: "function", label: "save_lead", meta: { "name": "extracted name", "email": "extracted email" }, "value": "confirmation_message_shown_to_user" }]
 - If general chat -> intent="general", ui_actions=[]
