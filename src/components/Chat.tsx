@@ -45,6 +45,45 @@ export function Chat() {
     }
   }, [isOpen, messages]);
 
+  // Handle automated actions like lead capture
+  useEffect(() => {
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage?.role === 'assistant (you)' && lastMessage.data?.ui_actions) {
+      const leadAction = lastMessage.data.ui_actions.find(a => a.type === 'function' && a.label === 'save_lead');
+
+      if (leadAction && leadAction.meta && !leadAction.action) {
+        const storageKey = `lead_sent_${leadAction.meta.email}`;
+        if (localStorage.getItem(storageKey)) {
+          leadAction.action = 'processed';
+          return;
+        }
+        localStorage.setItem(storageKey, 'true');
+
+        handleSaveLead(leadAction);
+      }
+    }
+  }, [messages]);
+
+  const handleSaveLead = async (action: UIAction) => {
+    if (action.action === 'processed') return;
+    action.action = 'processed';
+
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: action.meta?.name,
+          email: action.meta?.email,
+          message: 'Lead captured from Chatbot',
+          source: 'Chatbot'
+        })
+      });
+    } catch (e) {
+      console.error('Failed to save lead', e);
+    }
+  };
+
   const handleActionClick = (action: UIAction) => {
     switch (action.type) {
       case 'link':
@@ -61,8 +100,7 @@ export function Chat() {
   };
 
   const renderAction = (action: UIAction, index: number) => {
-    if (action.type === 'card') return null;
-
+    if (action.type === 'card' || action.type === 'function') return null;
     return (
       <Button
         key={index}

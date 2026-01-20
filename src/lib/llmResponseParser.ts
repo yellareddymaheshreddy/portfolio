@@ -1,6 +1,6 @@
 
 export interface UIAction {
-    type: 'button' | 'link' | 'copy' | 'card';
+    type: 'button' | 'link' | 'copy' | 'card' | 'function';
     label: string;
     action?: string;
     href?: string;
