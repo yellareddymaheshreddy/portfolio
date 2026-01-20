@@ -1,8 +1,9 @@
-import {GoogleGenAI} from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 import { SYSTEM_PROMPT } from '@/lib/ai-config';
 import { NextResponse } from 'next/server';
+import { parseLLMResponse } from '@/lib/llmResponseParser';
 
-const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY || ''});
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
 export async function POST(req: Request) {
   try {
@@ -17,13 +18,21 @@ export async function POST(req: Request) {
       .join('\n');
 
     const prompt = `${SYSTEM_PROMPT}\n\nConversation history:\n${conversationHistory}\n\nUser: ${messages[messages.length - 1].content}`;
+
     const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash',
-    contents: prompt,
-  });
-    return NextResponse.json({ 
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        responseMimeType: 'application/json',
+      }
+    });
+
+    const parsedResponse = parseLLMResponse(response.text || '{}');
+
+    return NextResponse.json({
       role: 'assistant (you)',
-      content: response.text
+      content: parsedResponse.message,
+      data: parsedResponse
     });
   } catch (error) {
     console.error('Chat API Error:', error);

@@ -3,10 +3,12 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import { ChatResponse, UIAction } from '@/lib/llmResponseParser';
 
 type Message = {
   role: 'user' | 'assistant (you)';
   content: string;
+  data?: ChatResponse;
 };
 
 export function Chat() {
@@ -14,7 +16,7 @@ export function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -43,6 +45,64 @@ export function Chat() {
     }
   }, [isOpen, messages]);
 
+  const handleActionClick = (action: UIAction) => {
+    switch (action.type) {
+      case 'link':
+      case 'button':
+        if (action.href) window.open(action.href, '_blank');
+        break;
+      case 'copy':
+        if (action.value) {
+          navigator.clipboard.writeText(action.value);
+          //add toast here later :TODO
+        }
+        break;
+    }
+  };
+
+  const renderAction = (action: UIAction, index: number) => {
+    if (action.type === 'card') return null;
+
+    return (
+      <Button
+        key={index}
+        variant="secondary"
+        size="sm"
+        className="mt-2 mr-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+        onClick={() => handleActionClick(action)}
+      >
+        {action.label}
+      </Button>
+    );
+  };
+
+  const renderCard = (action: UIAction, index: number) => {
+    if (action.type !== 'card') return null;
+
+    return (
+      <Card key={index} className="mt-3 bg-muted/50 border-primary/10 overflow-hidden">
+        <div className="p-3">
+          <h4 className="font-semibold text-primary">{action.label}</h4>
+          {action.meta?.description && (
+            <p className="text-xs text-muted-foreground mt-1 mb-2">{action.meta.description}</p>
+          )}
+          <div className="flex gap-2">
+            {action.meta?.github && (
+              <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => window.open(action.meta?.github, '_blank')}>
+                GitHub
+              </Button>
+            )}
+            {action.meta?.demo && (
+              <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => window.open(action.meta?.demo, '_blank')}>
+                Demo
+              </Button>
+            )}
+          </div>
+        </div>
+      </Card>
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -56,31 +116,30 @@ export function Chat() {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          messages: newMessages,
-          settings: {
-            temperature: 0.8,
-            max_tokens: 150,
-            system_prompt: "You are Mahesh Reddy, a friendly Full Stack Developer. Respond in a casual, professional tone. Use emojis occasionally. Keep responses brief and personal, like a real chat. Share your experience with MERN stack, Next.js, and other technologies you've worked with."
-          }
+        body: JSON.stringify({
+          messages: newMessages
         }),
       });
 
       const data = await response.json();
       if (response.ok) {
-        setMessages([...newMessages, data]);
+        setMessages([...newMessages, {
+          role: 'assistant (you)',
+          content: data.content,
+          data: data.data
+        }]);
       } else {
         console.error('Chat error:', data.error);
-        setMessages([...newMessages, { 
-          role: 'assistant (you)', 
-          content: "Sorry about that! Having some technical issues. Mind trying again? 🔧" 
+        setMessages([...newMessages, {
+          role: 'assistant (you)',
+          content: "Sorry about that! Having some technical issues. Mind trying again? 🔧"
         }]);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
-      setMessages([...newMessages, { 
-        role: 'assistant (you)', 
-        content: "Oops! Seems like my connection dropped. Could you try again? 🔌" 
+      setMessages([...newMessages, {
+        role: 'assistant (you)',
+        content: "Oops! Seems like my connection dropped. Could you try again? 🔌"
       }]);
     } finally {
       setIsLoading(false);
@@ -117,22 +176,33 @@ export function Chat() {
               {messages.map((message, index) => (
                 <div
                   key={index}
-                  className={`flex ${
-                    message.role === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'
+                    }`}
                 >
                   <div
-                    className={`rounded-2xl px-4 py-2 max-w-[85%] shadow-sm ${
-                      message.role === 'user'
-                        ? 'bg-primary text-primary-foreground ml-4'
-                        : 'bg-muted mr-4'
-                    } ${
-                      message.role === 'user' 
-                        ? 'rounded-br-sm' 
+                    className={`rounded-2xl px-4 py-2 max-w-[85%] shadow-sm ${message.role === 'user'
+                      ? 'bg-primary text-primary-foreground ml-4'
+                      : 'bg-muted mr-4'
+                      } ${message.role === 'user'
+                        ? 'rounded-br-sm'
                         : 'rounded-bl-sm'
-                    }`}
+                      }`}
                   >
-                    {message.content}
+                    <p className="whitespace-pre-wrap">{message.content}</p>
+
+                    {/* Render UI Actions */}
+                    {message.role === 'assistant (you)' && message.data?.ui_actions && (
+                      <div className="mt-2 text-primary-foreground">
+                        {/* Buttons & Links */}
+                        <div className="flex flex-wrap">
+                          {message.data.ui_actions.map((action, i) => renderAction(action, i))}
+                        </div>
+                        {/* Cards */}
+                        <div className="flex flex-col gap-2">
+                          {message.data.ui_actions.map((action, i) => renderCard(action, i))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -160,9 +230,9 @@ export function Chat() {
                 placeholder="Type your message..."
                 disabled={isLoading}
               />
-              <Button 
-                type="submit" 
-                size="icon" 
+              <Button
+                type="submit"
+                size="icon"
                 disabled={isLoading}
                 className="rounded-full hover:scale-105 transition-transform h-9 w-9 sm:h-10 sm:w-10"
               >
