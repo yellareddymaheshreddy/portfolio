@@ -5,7 +5,7 @@ export interface UIAction {
     action?: string;
     href?: string;
     value?: string;
-    meta?: Record<string, any>;
+    meta?: Record<string, string>;
 }
 
 export interface ChatResponse {
@@ -18,6 +18,7 @@ export function parseLLMResponse(responseText: string): ChatResponse {
     try {
         return JSON.parse(responseText);
     } catch (e) {
+        console.warn('Failed to parse JSON response', e);
         const jsonMatch = responseText.match(/```json\s*([\s\S]*?)\s*```/);
         if (jsonMatch && jsonMatch[1]) {
             try {
