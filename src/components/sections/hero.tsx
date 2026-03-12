@@ -29,7 +29,7 @@ export function Hero() {
                             Available for Freelance & Full-time Roles
                         </div>
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                            Hi, I'm Mahesh <br className="hidden md:block"/>
+                            Hi, I&apos;m Mahesh <br className="hidden md:block"/>
                             <span className="text-gradient">Full Stack Developer</span>
                         </h1>
                         <p className="mt-6 text-xl leading-8 text-muted-foreground max-w-2xl mx-auto">

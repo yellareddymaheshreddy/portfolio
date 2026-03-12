@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Loader2, Send, MapPin, Phone } from "lucide-react";
-import Link from "next/link";
+import { Mail, Linkedin, Loader2, Send, MapPin } from "lucide-react";
+
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -52,9 +52,9 @@ export function Contact() {
           {/* Left Column: Contact Details */}
           <div className="animate-fade-in-up space-y-8 lg:pr-10">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's build something <span className="text-gradient">epic.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">LetJ&apos;s build something <span className="text-gradient">epic.</span></h2>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-                Whether you have a groundbreaking idea, need an expert full-stack developer, or just want to connect, I'm always open to discussing new opportunities.
+                Whether you have a groundbreaking idea, need an expert full-stack developer, or just want to connect, I&apos;m always open to discussing new opportunities.
               </p>
             </div>
 
