@@ -58,6 +58,25 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		animation: {
+  			'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+  			'float': 'float 6s ease-in-out infinite',
+  			'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  		},
+  		keyframes: {
+  			fadeInUp: {
+  				'0%': { opacity: '0', transform: 'translateY(20px)' },
+  				'100%': { opacity: '1', transform: 'translateY(0)' },
+  			},
+  			float: {
+  				'0%, 100%': { transform: 'translateY(0)' },
+  				'50%': { transform: 'translateY(-10px)' },
+  			}
+  		},
+  		boxShadow: {
+  			'glow-primary': '0 0 15px -3px hsl(var(--primary) / 0.5), 0 0 6px -2px hsl(var(--primary) / 0.3)',
+  			'glow-accent': '0 0 15px -3px hsl(var(--accent) / 0.5), 0 0 6px -2px hsl(var(--accent) / 0.3)',
   		}
   	}
   },
