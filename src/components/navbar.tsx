@@ -9,10 +9,10 @@ const navigation = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="fixed top-4 inset-x-0 mx-auto z-50 w-[95%] max-w-5xl rounded-full glass-panel px-4 sm:px-6 py-3 transition-all">
+      <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 text-xl font-bold">
+          <Link href="/" className="-m-1.5 p-1.5 text-xl font-bold text-gradient">
             Mahesh Reddy
           </Link>
         </div>
@@ -24,9 +24,10 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-muted-foreground hover:text-primary"
+              className="text-sm font-semibold leading-6 text-muted-foreground hover:text-primary transition-colors relative group"
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full glow-primary"></span>
             </Link>
           ))}
         </div>
