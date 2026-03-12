@@ -73,10 +73,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
-        <div className="flex min-h-screen flex-col">
+      <body className={`${inter.className} overflow-x-hidden w-full relative bg-background text-foreground`}>
+        <div className="flex min-h-screen flex-col overflow-x-hidden w-full relative">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 overflow-x-hidden w-full">{children}</main>
           <Chat />
           <Footer />
         </div>
