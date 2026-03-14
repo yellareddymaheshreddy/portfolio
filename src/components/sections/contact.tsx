@@ -52,7 +52,7 @@ export function Contact() {
           {/* Left Column: Contact Details */}
           <div className="animate-fade-in-up space-y-8 lg:pr-10">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">LetJ&apos;s build something <span className="text-gradient">epic.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Let&apos;s build something <span className="text-gradient">epic.</span></h2>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
                 Whether you have a groundbreaking idea, need an expert full-stack developer, or just want to connect, I&apos;m always open to discussing new opportunities.
               </p>
@@ -107,7 +107,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-background/50 border border-border/50 rounded-xl p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all text-foreground placeholder:text-muted-foreground"
-                    placeholder="John Doe"
+                    placeholder="Arjun Reddy"
                     required
                   />
                 </div>
@@ -120,7 +120,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-background/50 border border-border/50 rounded-xl p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all text-foreground placeholder:text-muted-foreground"
-                    placeholder="john@example.com"
+                    placeholder="arjun@gmail.com"
                     required
                   />
                 </div>

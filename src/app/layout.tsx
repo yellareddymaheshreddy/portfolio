@@ -11,16 +11,17 @@ export const metadata: Metadata = {
   title: 'Mahesh Reddy - Full Stack Developer',
   description: 'Full Stack Developer specializing in MERN stack and Next.js. Computer Science student at BIET Hyderabad with expertise in building user-friendly, production-ready websites.',
   keywords: 'Full Stack Developer, MERN Stack, Next.js, React.js, Node.js, Web Development, BIET Hyderabad',
+  metadataBase: new URL('https://ymaheshreddy.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://maheshreddy.online',
+    url: 'https://ymaheshreddy.vercel.app',
     title: 'Mahesh Reddy - Full Stack Developer',
     description: 'Full Stack Developer specializing in MERN stack and Next.js',
     siteName: 'Mahesh Reddy Portfolio',
     images: [
       {
-        url: 'https://mahs.me/portfolio-dark.png',
+        url: 'https://ymaheshreddy.vercel.app/portfolio-dark.png',
         width: 1200,
         height: 630,
         alt: 'Mahesh Reddy Portfolio',
@@ -53,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className='dark'>
       <head>
-        <link rel="canonical" href="https://maheshreddy.online" />
+        <link rel="canonical" href="https://ymaheshreddy.vercel.app" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -61,7 +62,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Mahesh Reddy',
-              url: 'https://maheshreddy.online',
+              url: 'https://ymaheshreddy.vercel.app',
               sameAs: [
                 'https://github.com/yellareddymaheshreddy',
                 'https://linkedin.com/in/maheshreddyyellareddy'

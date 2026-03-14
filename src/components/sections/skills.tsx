@@ -1,13 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "../ui/badge";
-import { Code, Server, Terminal, PenToolIcon as Tool } from 'lucide-react'
-
-const skillCategories = [
-  { title: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS", "Recoil", "HTML", "CSS"], icon: Code, delay: "delay-[100ms]" },
-  { title: "Backend", skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "FastAPI", "Django", "PostgreSQL", "MySQL"], icon: Server, delay: "delay-[200ms]" },
-  { title: "Programming", skills: ["C", "C++", "Java", "JavaScript", "TypeScript", "Python", "R"], icon: Terminal, delay: "delay-[300ms]" },
-  { title: "Tools & Others", skills: ["Git", "Docker", "AWS", "Vercel", "Linux", "Nginx", "Socket.io", "SEO"], icon: Tool, delay: "delay-[400ms]" },
-] 
+import { skillCategories } from "@/config/portfolioConfig";
 
 export function Skills() {
   return (

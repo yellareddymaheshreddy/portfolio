@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Photo from '../../../public/Mahesh.webp'
+import Photo from '@/../public/Mahesh.webp'
 
 export function Hero() {
     return (
         <section className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16">
-            {/* Background glowing orbs */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10 opacity-50 animate-pulse-slow"></div>
             <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-accent/20 rounded-full blur-[80px] -z-10 opacity-40"></div>
 

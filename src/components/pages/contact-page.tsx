@@ -98,7 +98,6 @@ export function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* New: Phone contact with tel: hyperlink */}
             <Card className="transition-shadow hover:shadow-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
@@ -232,7 +231,6 @@ export function ContactPage() {
                 )}
               </Button>
 
-              {/* Accessibility: announce status updates to screen readers */}
               <p
                 role="status"
                 aria-live="polite"

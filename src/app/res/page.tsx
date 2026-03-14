@@ -1,22 +1,22 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mahesh YR — Resume",
+  title: "Mahesh — Resume",
   description: "Computer Science Student | Developer | My latest resume.",
 
   openGraph: {
-    title: "Mahesh YR — Resume",
+    title: "Mahesh — Resume",
     description: "My latest resume.",
     type: "article",
-    url: "https://mahs.me/res",
-    images: ["https://mahs.me/resume-preview.png"],
+    url: "https://ymaheshreddy.vercel.app/res",
+    images: ["https://ymaheshreddy.vercel.app/resume-preview.png"],
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Mahesh YR — Resume",
     description: "My latest resume.",
-    images: ["https://mahs.me/resume-preview.png"],
+    images: ["https://ymaheshreddy.vercel.app/resume-preview.png"],
   },
 };
 
@@ -25,7 +25,7 @@ export default function ResumeRedirect() {
     <html>
       <head>
         {/* Auto-redirect instantly to your PDF */}
-        <meta httpEquiv="refresh" content="0; url=https://mahs.me/Mahesh-Resume.pdf" />
+        <meta httpEquiv="refresh" content="0; url=https://ymaheshreddy.vercel.app/Mahesh-Resume.pdf" />
       </head>
       <body>
         <p>Redirecting to resume...</p>

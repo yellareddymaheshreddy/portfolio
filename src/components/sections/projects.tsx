@@ -3,73 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../public/projects/mybiet.webp";
-import tvault from "../../../public/projects/tvault.png";
-import autoskaler from "../../../public/projects/autoskaler.png";
-import ecobil from "../../../public/projects/ecobill.png";
-import subhasampada from "../../../public/projects/subhasampada.png";
-import topgunstudios from "../../../public/projects/topgunstudio.png";
+import { portfolioConfig } from "@/config/portfolioConfig";
 
-const projects = {
-  personal: [
-    {
-      title: "mybiet.me",
-      description: "A Next.js-powered platform with authentication and user management",
-      image: logo,//https://mybiet.me/icons/MyBiet-BlackBG-512.png
-      github: "https://github.com/yellareddymaheshreddy",
-      demo: "https://mybiet.vercel.app",
-      tech: ["Next.js", "React", "Tailwind CSS", "Authentication"]
-    },
-    {
-      title: "Ecobill",
-      description: "A billing system for businesses",
-      image: ecobil,
-      github: "https://github.com/yellareddymaheshreddy",
-      demo: "https://eco-bill.vercel.app",
-      tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "Postgress"]
-    },
-    {
-      title: "T-Vault",
-      description: "A Text sharing platform without any signin lablalalalalsd asdfj asdlkfjasf",
-      image: tvault,
-      github: "https://github.com/yellareddymaheshreddy",
-      demo: "https://tsvault.vercel.app",
-      tech: ["Next.js", "React", "Tailwind CSS", "Redis"]
-    },
-    // Add more personal projects here
-  ],
-  client: [
-    {
-      "title": "Autoskaler",
-      "description": "A company portfolio project with blogs and user roles",
-      "image": autoskaler, // Replace with actual image link
-      "demo": "https://autoskaler.com",
-      "tech": ["Next.js", "React", "Node.js", "Postgress"]
-    },
-    {
-      "title": "Subha Sampada - Real Estate Website",
-      "description": "Modern real estate website showcasing Shamshine City @ Kothur.",
-      "image": subhasampada,
-      "demo": "https://subhasampada.com",
-      "tech": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-      "features": [
-        "Responsive real estate landing pages",
-        "Premium location advantage section",
-        "Project gallery and highlights",
-        "Lead generation contact forms",
-        "SEO optimized pages"
-      ]
-    },
-    {
-  "title": "Top Gun Studios",
-  "description": "A modern web development agency website showcasing services, projects, and company portfolio",
-  "image": topgunstudios, 
-  "demo": "https://topgunstudio.com",
-  "tech": ["Framer", "CMS", "Responsive Design"]
-}
-    // Add more client projects here
-  ]
-};
+const projects = portfolioConfig.projects
 
 export function Projects() {
   return (

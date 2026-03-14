@@ -14,7 +14,7 @@ YOUR DATA:
 - GitHub: ${portfolioConfig.contact.github}
 - Resume: ${portfolioConfig.contact.resume}
 - Projects:
-${portfolioConfig.projects.map(p => `  * ${p.name}: ${p.description} (Demo: ${p.demo}, Repo: ${p.github})`).join('\n')}
+${portfolioConfig.projects}
 
 RESPONSE FORMAT RULES:
 1. You must ONLY return a valid JSON object. Do not include markdown formatting like \`\`\`json.
