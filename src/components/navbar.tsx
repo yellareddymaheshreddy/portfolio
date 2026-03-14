@@ -1,5 +1,9 @@
-import Link from "next/link"
-import ThemeSwitch from "./themeswitch"
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import ThemeSwitch from "./themeswitch";
 
 const navigation = [
   { name: "Skills", href: "/#skills" },
@@ -8,8 +12,30 @@ const navigation = [
 ]
 
 export function Navbar() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useMotionValueEvent(scrollY, "change", (latest: number) => {
+    // Show navbar when scrolling up or at the very top, hide when scrolling down
+    if (latest < lastScrollY || latest <= 50) {
+      setHidden(false);
+    } else if (latest > 50 && latest > lastScrollY) {
+      setHidden(true);
+    }
+    setLastScrollY(latest);
+  });
+
   return (
-    <header className="fixed top-4 inset-x-0 mx-auto z-50 w-[95%] max-w-5xl rounded-full glass-panel px-4 sm:px-6 py-3 transition-all">
+    <motion.header 
+      variants={{
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: "-150%", opacity: 0 }
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-4 inset-x-0 mx-auto z-50 w-[95%] max-w-5xl rounded-full glass-panel px-4 sm:px-6 py-3 transition-colors"
+    >
       <nav className="flex items-center justify-between" aria-label="Global">
           <div className="flex lg:flex-1 shrink-0">
             <Link href="/" className="-m-1.5 p-1.5 text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">
@@ -35,6 +61,6 @@ export function Navbar() {
             <ThemeSwitch />
           </div>
         </nav>
-    </header>
+    </motion.header>
   )
 }

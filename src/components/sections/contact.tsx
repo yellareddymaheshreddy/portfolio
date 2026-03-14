@@ -48,7 +48,7 @@ export function Contact() {
 
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-start">
-          
+
           {/* Left Column: Contact Details */}
           <div className="animate-fade-in-up space-y-8 lg:pr-10">
             <div>
@@ -92,12 +92,12 @@ export function Contact() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="animate-fade-in-up delay-[200ms]">
+          <div className="animate-fade-in-up delay-150">
             <div className="bg-card/40 backdrop-blur-xl border border-border/50 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-              
+
               <h3 className="text-2xl font-bold mb-8 text-foreground">Send a Message</h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground/80 pl-1">Name</label>
@@ -111,7 +111,7 @@ export function Contact() {
                     required
                   />
                 </div>
-                  
+
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-foreground/80 pl-1">Email</label>
                   <input
@@ -138,8 +138,8 @@ export function Contact() {
                 </div>
 
                 <div className="pt-2">
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={status.type === "loading"}
                     className="w-full rounded-xl py-6 text-base font-bold shadow-glow-primary hover:scale-[1.02] transition-transform bg-primary text-primary-foreground"
                   >
@@ -154,15 +154,14 @@ export function Contact() {
                       </>
                     )}
                   </Button>
-                  
+
                   {status.message && (
-                    <div className={`mt-4 p-3 rounded-lg text-sm font-medium text-center border ${
-                      status.type === "success" 
-                        ? "bg-green-500/10 text-green-500 border-green-500/20" 
-                        : status.type === "error" 
-                          ? "bg-red-500/10 text-red-500 border-red-500/20" 
+                    <div className={`mt-4 p-3 rounded-lg text-sm font-medium text-center border ${status.type === "success"
+                        ? "bg-green-500/10 text-green-500 border-green-500/20"
+                        : status.type === "error"
+                          ? "bg-red-500/10 text-red-500 border-red-500/20"
                           : "bg-muted/50 text-muted-foreground border-border/50"
-                    }`}>
+                      }`}>
                       {status.message}
                     </div>
                   )}
@@ -170,7 +169,7 @@ export function Contact() {
               </form>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
