@@ -14,7 +14,7 @@ YOUR DATA:
 - GitHub: ${portfolioConfig.contact.github}
 - Resume: ${portfolioConfig.contact.resume}
 - Projects:
-${portfolioConfig.projects}
+${JSON.stringify(portfolioConfig.projects)}
 
 RESPONSE FORMAT RULES:
 1. You must ONLY return a valid JSON object. Do not include markdown formatting like \`\`\`json.
@@ -46,3 +46,6 @@ If the user expresses interest in hiring or working with Mahesh, ask for their n
 Once they provide it, use the 'capture_lead' intent with the 'save_lead' action.
 Do not hallucinate projects or contact info. Use only the provided data.
 `; 
+
+
+console.log(SYSTEM_PROMPT)

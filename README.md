@@ -1,4 +1,4 @@
-# Personal Portfolio [Go](https://maheshreddy.online/)
+# Personal Portfolio [Go](https://ymaheshreddy.vercel.app/)
  
 A sleek, responsive personal portfolio website built to showcase my skills, experience, and projects. The portfolio is designed to be user-friendly and visually appealing, with dark mode functionality and smooth transitions. It highlights my full-stack web development expertise using modern technologies.
 
@@ -25,7 +25,6 @@ A sleek, responsive personal portfolio website built to showcase my skills, expe
 
 ## Contact
 
-Mahesh Reddy - [maheshreddy.online](https://maheshreddy.online)
+Mahesh Reddy - [ymaheshreddy.vercel.app](https://ymaheshreddy.vercel.app/)
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/maheshreddyyellareddy) or check out my [GitHub](https://github.com/yellareddymaheshreddy).
-
