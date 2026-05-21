@@ -48,4 +48,4 @@ Do not hallucinate projects or contact info. Use only the provided data.
 `; 
 
 
-console.log(SYSTEM_PROMPT)
+// console.log(SYSTEM_PROMPT)
