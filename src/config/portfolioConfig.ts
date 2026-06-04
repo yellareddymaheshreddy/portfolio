@@ -11,11 +11,16 @@ import topgunstudios from "@/../public/projects/topgunstudio.png";
 
 export const portfolioConfig = {
     contact: {
+        name: "Mahesh Reddy",
+        nameShort:"Mahesh",
         email: "yellareddymaheshreddy@gmail.com",
         phone: "+91 63000 39607",
+        phoneLink:"916300039607",
         linkedin: "https://linkedin.com/in/maheshreddyyellareddy",
         github: "https://github.com/yellareddymaheshreddy",
-        resume: "/Mahesh-Resume.pdf"
+        resume: "/Mahesh-Resume.pdf",
+        domain: "https://ymaheshreddy.vercel.app",
+        location: "Hyderabad, India"
     },
 
     projects: {
@@ -115,7 +120,21 @@ export const portfolioConfig = {
             }
         ]
 
-    }
+    },
+
+    skillCategories : [
+    { title: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS", "Recoil", "HTML", "CSS"], icon: Code, delay: "delay-[100ms]" },
+    { title: "Backend", skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "FastAPI", "Django", "PostgreSQL", "MySQL"], icon: Server, delay: "delay-150" },
+    { title: "Programming", skills: ["C", "C++", "Java", "JavaScript", "TypeScript", "Python", "R"], icon: Terminal, delay: "delay-[300ms]" },
+    { title: "Tools & Others", skills: ["Git", "Docker", "AWS", "Vercel", "Linux", "Nginx", "Socket.io", "SEO"], icon: Tool, delay: "delay-[400ms]" },
+] ,
+
+    //change this to false to disable the section
+    dynamicSections : {
+    chatbot : true,
+    projects : false,
+    resume : true
+}
 };
 
 export const skillCategories = [

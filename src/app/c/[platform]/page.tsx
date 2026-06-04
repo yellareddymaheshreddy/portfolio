@@ -1,12 +1,13 @@
 import { redirect ,notFound} from "next/navigation";
+import { portfolioConfig } from "@/config/portfolioConfig";
 
 const links: Record<string, string> = {
-  whatsapp: "https://wa.me/916300039697",
-  linkedin: "https://www.linkedin.com/in/maheshreddyyellareddy/",
-  github: "https://github.com/yellareddymaheshreddy",
-  email:"mailto:yellareddymaheshreddy@gmail.com",
-  tel:"tel:916300039607",
-  wp:"https://wa.me/916300039607",
+  whatsapp: `https://wa.me/${portfolioConfig.contact.phoneLink}`,
+  linkedin: portfolioConfig.contact.linkedin,
+  github: portfolioConfig.contact.github,
+  email: `mailto:${portfolioConfig.contact.email}`,
+  tel: `tel:${portfolioConfig.contact.phoneLink}`,
+  wp: `https://wa.me/${portfolioConfig.contact.phoneLink}`,
 };
 
 export default async function ContactRedirect({ params }: { params:Promise< { platform: string } >}) {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Photo from '@/../public/Mahesh.webp'
+import { portfolioConfig } from "@/config/portfolioConfig";
 
 export function Hero() {
     return (
@@ -18,7 +19,7 @@ export function Hero() {
                             width={180}
                             className="relative object-cover object-left-top h-40 w-40 md:h-48 md:w-48 rounded-full border-2 border-primary/50 shadow-glow-primary"
                             src={Photo}
-                            alt="Mahesh Image"
+                            alt={`${portfolioConfig.contact.name} Image`}
                             placeholder="blur"
                         />
                     </div>
@@ -28,7 +29,7 @@ export function Hero() {
                             Available for Freelance & Full-time Roles
                         </div>
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                            Hi, I&apos;m Mahesh <br className="hidden md:block"/>
+                            Hi, I&apos;m {portfolioConfig.contact.nameShort} <br className="hidden md:block"/>
                             <span className="text-gradient">Full Stack Developer</span>
                         </h1>
                         <p className="mt-6 text-xl leading-8 text-muted-foreground max-w-2xl mx-auto">

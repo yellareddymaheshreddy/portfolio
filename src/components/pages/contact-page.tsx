@@ -11,9 +11,10 @@ import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { portfolioConfig } from "@/config/portfolioConfig"
 
 
-const PHONE_NUMBER = "+91 63000 39607" 
+const PHONE_NUMBER = portfolioConfig.contact.phone;
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -87,11 +88,11 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-medium">Email</h3>
                     <a
-                      href="mailto:yellareddymaheshreddy@gmail.com"
+                      href={`mailto:${portfolioConfig.contact.email}`}
                       className="text-muted-foreground hover:text-primary underline-offset-4 hover:underline"
-                      aria-label="Email: yellareddymaheshreddy at gmail dot com"
+                      aria-label={`Email: ${portfolioConfig.contact.email}`}
                     >
-                      yellareddymaheshreddy@gmail.com
+                      {portfolioConfig.contact.email}
                     </a>
                   </div>
                 </div>
@@ -124,7 +125,7 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-medium">LinkedIn</h3>
                     <a
-                      href="https://www.linkedin.com/in/maheshreddyyellareddy/"
+                      href={portfolioConfig.contact.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary underline-offset-4 hover:underline"
@@ -144,7 +145,7 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-medium">GitHub</h3>
                     <a
-                      href="https://github.com/yellareddymaheshreddy"
+                      href={portfolioConfig.contact.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary underline-offset-4 hover:underline"

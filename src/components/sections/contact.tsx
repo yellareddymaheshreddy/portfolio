@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Loader2, Send, MapPin } from "lucide-react";
+import { portfolioConfig } from "@/config/portfolioConfig";
 
 
 export function Contact() {
@@ -59,23 +60,23 @@ export function Contact() {
             </div>
 
             <div className="space-y-6 pt-4">
-              <a href="mailto:yellareddymaheshreddy@gmail.com" className="flex items-center gap-4 group">
+              <a href={`mailto:${portfolioConfig.contact.email}`} className="flex items-center gap-4 group">
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-glow-primary transition-all duration-300">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground font-medium">Email Me</p>
-                  <p className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors break-all">yellareddymaheshreddy@gmail.com</p>
+                  <p className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors break-all">{portfolioConfig.contact.email}</p>
                 </div>
               </a>
 
-              <a href="https://www.linkedin.com/in/maheshreddyyellareddy/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+              <a href={portfolioConfig.contact.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
                   <Linkedin className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground font-medium">Connect on LinkedIn</p>
-                  <p className="text-lg font-semibold text-foreground group-hover:text-[#0A66C2] transition-colors">Mahesh Reddy</p>
+                  <p className="text-lg font-semibold text-foreground group-hover:text-[#0A66C2] transition-colors">{portfolioConfig.contact.name}</p>
                 </div>
               </a>
 
@@ -85,7 +86,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground font-medium">Location</p>
-                  <p className="text-lg font-semibold text-foreground">Hyderabad, India</p>
+                  <p className="text-lg font-semibold text-foreground">{portfolioConfig.contact.location}</p>
                 </div>
               </div>
             </div>

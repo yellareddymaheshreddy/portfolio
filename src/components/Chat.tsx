@@ -5,12 +5,20 @@ import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 import { ChatResponse, UIAction } from '@/lib/llmResponseParser';
 import { portfolioConfig } from '@/config/portfolioConfig';
-
+// change role of assistant (you)  to just asssistant
 type Message = {
   role: 'user' | 'assistant (you)';
   content: string;
   data?: ChatResponse;
 };
+const errorMessages = [
+  "Currently battling a few bugs 🐛 — try again shortly!",
+  "Looks like I stepped away from my keyboard for a minute 👋",
+  "My servers are taking a tiny coffee break ☕",
+  "Oops — something went sideways. Mind trying again?",
+  "I think my brain.js file crashed 😅",
+];
+
 
 export function Chat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +42,9 @@ export function Chat() {
       setMessages([
         {
           role: 'assistant (you)',
-          content: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!",
+          content: `Hey! 👋 I'm ${portfolioConfig.contact.nameShort}, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!`,
           data: {
-            message: "Hey! 👋 I'm Mahesh, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!",
+            message: `Hey! 👋 I'm ${portfolioConfig.contact.nameShort}, a Full Stack Developer. I'd love to chat about web development, my projects, view my resume, or answer any questions you have!`,
             intent: 'general',
             ui_actions: [
               {
@@ -182,14 +190,14 @@ export function Chat() {
         console.error('Chat error:', data.error);
         setMessages([...newMessages, {
           role: 'assistant (you)',
-          content: "Sorry about that! Having some technical issues. Mind trying again? 🔧"
+          content: errorMessages[Math.floor(Math.random() * errorMessages.length)]
         }]);
       }
     } catch (error) {
       console.error('Failed to send message:', error);
       setMessages([...newMessages, {
         role: 'assistant (you)',
-        content: "Oops! Seems like my connection dropped. Could you try again? 🔌"
+        content: errorMessages[Math.floor(Math.random() * errorMessages.length)]
       }]);
     } finally {
       setIsLoading(false);

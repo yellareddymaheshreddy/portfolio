@@ -1,22 +1,23 @@
 import { Metadata } from "next";
+import { portfolioConfig } from "@/config/portfolioConfig";
 
 export const metadata: Metadata = {
-  title: "Mahesh — Resume",
+  title: `${portfolioConfig.contact.name} — Resume`,
   description: "Computer Science Student | Developer | My latest resume.",
 
   openGraph: {
-    title: "Mahesh — Resume",
+    title: `${portfolioConfig.contact.name} — Resume`,
     description: "My latest resume.",
     type: "article",
-    url: "https://ymaheshreddy.vercel.app/res",
-    images: ["https://ymaheshreddy.vercel.app/resume-preview.png"],
+    url: `${portfolioConfig.contact.domain}/res`,
+    images: [`${portfolioConfig.contact.domain}/resume-preview.png`],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Mahesh YR — Resume",
+    title: `${portfolioConfig.contact.name} — Resume`,
     description: "My latest resume.",
-    images: ["https://ymaheshreddy.vercel.app/resume-preview.png"],
+    images: [`${portfolioConfig.contact.domain}/resume-preview.png`],
   },
 };
 
@@ -25,7 +26,7 @@ export default function ResumeRedirect() {
     <html>
       <head>
         {/* Auto-redirect instantly to your PDF */}
-        <meta httpEquiv="refresh" content="0; url=https://ymaheshreddy.vercel.app/Mahesh-Resume.pdf" />
+        <meta httpEquiv="refresh" content={`0; url=${portfolioConfig.contact.domain}${portfolioConfig.contact.resume}`} />
       </head>
       <body>
         <p>Redirecting to resume...</p>

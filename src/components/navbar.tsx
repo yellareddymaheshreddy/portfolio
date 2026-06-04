@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import ThemeSwitch from "./themeswitch";
+import { portfolioConfig } from "@/config/portfolioConfig";
+
 
 const navigation = [
   { name: "Skills", href: "/#skills" },
@@ -39,7 +41,7 @@ export function Navbar() {
       <nav className="flex items-center justify-between" aria-label="Global">
           <div className="flex lg:flex-1 shrink-0">
             <Link href="/" className="-m-1.5 p-1.5 text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">
-              Mahesh Reddy
+              {portfolioConfig.contact.name}
             </Link>
           </div>
           <div className="flex lg:hidden shrink-0">
