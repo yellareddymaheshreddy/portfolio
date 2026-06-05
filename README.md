@@ -1,6 +1,12 @@
 # Personal Portfolio [Go](https://ymaheshreddy.vercel.app/)
  
-A sleek, responsive personal portfolio website built to showcase my skills, experience, and projects. The portfolio is designed to be user-friendly and visually appealing, with dark mode functionality and smooth transitions. It highlights my full-stack web development expertise using modern technologies.
+A sleek, responsive personal portfolio website built to showcase my skills, experience, and projects.
+
+> [!TIP]
+> This project is designed to help beginners create their own portfolio easily. 🚀
+> Read [setup.md](setup.md) to create your own customized portfolio website.
+
+The portfolio is designed to be user-friendly and visually appealing, with dark mode functionality and smooth transitions. It highlights my full-stack web development expertise using modern technologies.
 
 ## Features 
 

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Photo from '@/../public/Mahesh.webp'
 import { portfolioConfig } from "@/config/portfolioConfig";
 
 export function Hero() {
@@ -18,7 +17,7 @@ export function Hero() {
                             height={180}
                             width={180}
                             className="relative object-cover object-left-top h-40 w-40 md:h-48 md:w-48 rounded-full border-2 border-primary/50 shadow-glow-primary"
-                            src={Photo}
+                            src={portfolioConfig.contact.image}
                             alt={`${portfolioConfig.contact.name} Image`}
                             placeholder="blur"
                         />

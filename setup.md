@@ -12,11 +12,25 @@ To get started, you'll need to clone the repository and set up your own version 
     cd portfolio
     ```
 
-2.  **Create your own repository on GitHub:**
+2.  **Install dependencies:**
+    You can use either `npm` or `bun` to install the required packages:
+    ```bash
+    npm install
+    # OR
+    bun install
+    ```
+
+    > [!IMPORTANT]
+    > If you installed using `npm`, please remove the `bun.lock` file to avoid any package manager conflicts:
+    > ```bash
+    > rm bun.lock
+    > ```
+
+3.  **Create your own repository on GitHub:**
     - Go to [GitHub](https://github.com/new) and create a new repository.
     - Do **not** initialize it with a README or License.
 
-3.  **Update the remote URL:**
+4.  **Update the remote URL:**
     Replace `<your-github-username>` and `<your-repo-name>` with your own details.
     ```bash
     git remote set-url origin https://github.com/<your-github-username>/<your-repo-name>.git

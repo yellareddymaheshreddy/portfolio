@@ -5,7 +5,7 @@ import dctech from "@/../public/projects/dctech.png"
 import ecobil from "@/../public/projects/ecobill.png";
 import subhasampada from "@/../public/projects/subhasampada.png";
 import topgunstudios from "@/../public/projects/topgunstudio.png";
-
+import Photo from "@/../public/Mahesh.webp";
 
 
 
@@ -20,7 +20,8 @@ export const portfolioConfig = {
         github: "https://github.com/yellareddymaheshreddy",
         resume: "/Mahesh-Resume.pdf",
         domain: "https://ymaheshreddy.vercel.app",
-        location: "Hyderabad, India"
+        location: "Hyderabad, India",
+        image: Photo
     },
 
     projects: {
@@ -71,7 +72,7 @@ export const portfolioConfig = {
                 ]
             }
         ],
-
+        //if you dont have any client projects keep empty array client :[]
         client: [
             {
                 title: "Subha Sampada - Real Estate Website",
@@ -132,14 +133,8 @@ export const portfolioConfig = {
     //change this to false to disable the section
     dynamicSections : {
     chatbot : true,
-    projects : false,
-    resume : true
+    projects : true,
+    resume : true,
+    showclientprojects:true
 }
 };
-
-export const skillCategories = [
-    { title: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS", "Recoil", "HTML", "CSS"], icon: Code, delay: "delay-[100ms]" },
-    { title: "Backend", skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "FastAPI", "Django", "PostgreSQL", "MySQL"], icon: Server, delay: "delay-150" },
-    { title: "Programming", skills: ["C", "C++", "Java", "JavaScript", "TypeScript", "Python", "R"], icon: Terminal, delay: "delay-[300ms]" },
-    { title: "Tools & Others", skills: ["Git", "Docker", "AWS", "Vercel", "Linux", "Nginx", "Socket.io", "SEO"], icon: Tool, delay: "delay-[400ms]" },
-] 

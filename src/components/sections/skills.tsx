@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "../ui/badge";
-import { skillCategories } from "@/config/portfolioConfig";
+import { portfolioConfig } from "@/config/portfolioConfig";
+const skillCategories = portfolioConfig.skillCategories;
 
 export function Skills() {
   return (
